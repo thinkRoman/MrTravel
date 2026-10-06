@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-fraunces), Georgia, "Times New Roman", serif;
+
+  --color-parchment: #faf6ee;
+  --color-ink: #221a12;
+
+  --color-terracotta-50: #fdf4ec;
+  --color-terracotta-100: #f9e3d1;
+  --color-terracotta-200: #f1c5a1;
+  --color-terracotta-300: #e79f6f;
+  --color-terracotta-600: #c05a28;
+  --color-terracotta-700: #a0461f;
+  --color-terracotta-800: #7f3718;
+  --color-terracotta-900: #5c2712;
+
+  --color-olive-100: #eceedc;
+  --color-olive-600: #6d7442;
+  --color-olive-700: #545a33;
+
+  --color-gold-300: #e8c98f;
+  --color-gold-400: #d3a94e;
+  --color-gold-500: #bd8f2e;
+
+  --color-espresso-800: #3a2a1c;
+  --color-espresso-900: #2b1e13;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--color-parchment);
+  color: var(--color-ink);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-terracotta-200);
+}
+
+/* Refined card used across the portal */
+.card {
+  @apply rounded-2xl border border-stone-900/10 bg-white;
+  box-shadow:
+    0 1px 2px rgba(34, 26, 18, 0.05),
+    0 12px 32px -16px rgba(34, 26, 18, 0.18);
+}
+
+/* Small caps eyebrow label */
+.eyebrow {
+  @apply text-[11px] font-bold uppercase;
+  letter-spacing: 0.16em;
+}
+
+/* Primary action button */
+.btn-primary {
+  @apply min-h-[52px] w-full rounded-xl text-base font-semibold text-white transition-all active:scale-[0.99];
+  background: linear-gradient(180deg, var(--color-terracotta-600), var(--color-terracotta-700));
+  box-shadow:
+    0 1px 2px rgba(92, 39, 18, 0.4),
+    0 8px 20px -8px rgba(160, 70, 31, 0.6);
+}
+.btn-primary:disabled {
+  opacity: 0.55;
+  box-shadow: none;
+}
+
+/* Text inputs */
+.field {
+  @apply min-h-[48px] w-full rounded-xl border border-stone-300 bg-white px-3.5 py-2 text-base text-stone-900 placeholder:text-stone-400;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.field:focus {
+  outline: none;
+  border-color: var(--color-terracotta-600);
+  box-shadow: 0 0 0 3px var(--color-terracotta-100);
+}
