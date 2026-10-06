@@ -24,10 +24,13 @@ export default function SuggestPage() {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold tracking-tight">Suggest a change</h1>
-      <p className="mt-1 text-sm text-stone-600">
-        This board is live — what you post here is saved to the family database and everyone sees it
-        on their own phone.
+      <p className="eyebrow text-terracotta-700">Everyone sees everything</p>
+      <h1 className="mt-1 font-display text-[32px] font-semibold tracking-tight text-ink">
+        Suggest a change
+      </h1>
+      <p className="mt-2 text-sm leading-relaxed text-stone-600">
+        This board is live — what you post here is saved to the family database and everyone sees
+        it on their own phone.
       </p>
       <div className="mt-4">
         <SuggestionForm onPosted={() => setRefreshKey((k) => k + 1)} />

@@ -26,8 +26,7 @@ export default function NamePicker({ value, onChange }: Props) {
 
 function NamePickerInner({ value, onChange }: Props) {
   const users = useUsers();
-  const inputCls =
-    "min-h-[48px] w-full rounded-lg border border-stone-300 bg-white px-3 py-2 text-base";
+  const inputCls = "field";
 
   if (users.length === 0) {
     return (

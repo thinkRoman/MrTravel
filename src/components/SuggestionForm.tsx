@@ -54,23 +54,22 @@ export default function SuggestionForm({ onPosted }: { onPosted: () => void }) {
     }
   };
 
-  const inputCls =
-    "min-h-[48px] w-full rounded-lg border border-stone-300 bg-white px-3 py-2 text-base";
+  const inputCls = "field";
 
   return (
-    <form onSubmit={submit} className="rounded-2xl border border-stone-200 bg-white p-4 shadow-sm">
-      <h2 className="text-lg font-semibold text-stone-900">Suggest a change</h2>
+    <form onSubmit={submit} className="card p-5">
+      <h2 className="font-display text-[20px] font-semibold text-ink">Suggest a change</h2>
       <p className="mt-1 text-sm text-stone-600">
         Saved to the family database — everyone sees it instantly.
       </p>
 
       <div className="mt-4 space-y-3">
         <div>
-          <label className="mb-1 block text-sm font-medium text-stone-700">Your name</label>
+          <label className="mb-1.5 block text-[13px] font-semibold text-stone-700">Your name</label>
           <NamePicker value={name} onChange={setName} />
         </div>
         <div>
-          <label className="mb-1 block text-sm font-medium text-stone-700">Date affected</label>
+          <label className="mb-1.5 block text-[13px] font-semibold text-stone-700">Date affected</label>
           <input
             value={dateAffected}
             onChange={(e) => setDateAffected(e.target.value)}
@@ -79,7 +78,7 @@ export default function SuggestionForm({ onPosted }: { onPosted: () => void }) {
           />
         </div>
         <div>
-          <label className="mb-1 block text-sm font-medium text-stone-700">Place</label>
+          <label className="mb-1.5 block text-[13px] font-semibold text-stone-700">Place</label>
           <input
             value={place}
             onChange={(e) => setPlace(e.target.value)}
@@ -108,7 +107,7 @@ export default function SuggestionForm({ onPosted }: { onPosted: () => void }) {
             onChange={(e) => setDetails(e.target.value)}
             placeholder="What should change, and why?"
             rows={4}
-            className="w-full rounded-lg border border-stone-300 bg-white px-3 py-2 text-base"
+            className="field min-h-[48px] w-full"
           />
         </div>
       </div>
@@ -123,7 +122,7 @@ export default function SuggestionForm({ onPosted }: { onPosted: () => void }) {
       <button
         type="submit"
         disabled={saving}
-        className="mt-4 min-h-[52px] w-full rounded-xl bg-orange-800 text-base font-semibold text-white disabled:opacity-50"
+        className="btn-primary mt-5"
       >
         {saving ? "Saving…" : "Post suggestion"}
       </button>

@@ -135,10 +135,10 @@ function ButtonsInner({
             type="button"
             disabled={saving || !name.trim()}
             onClick={() => react(value)}
-            className={`min-h-[44px] rounded-full border px-4 text-sm font-medium transition-colors disabled:opacity-60 ${
+            className={`min-h-[44px] rounded-full border px-4 text-sm font-semibold transition-all active:scale-[0.97] disabled:opacity-60 ${
               active
-                ? "border-orange-800 bg-orange-800 text-white"
-                : "border-stone-300 bg-white text-stone-700 active:bg-stone-100"
+                ? "border-terracotta-700 bg-terracotta-700 text-white shadow-[0_4px_12px_-4px_rgba(160,70,31,0.7)]"
+                : "border-stone-300 bg-white text-stone-700 active:bg-terracotta-50"
             }`}
           >
             {LABELS[value]}

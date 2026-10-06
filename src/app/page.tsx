@@ -1,78 +1,90 @@
 import Link from "next/link";
 
-const STOPS = [
-  { place: "Rome", detail: "Dec 17–21 · 4 nights" },
-  { place: "Naples", detail: "Dec 21–23 · 2 nights" },
-  { place: "Valle d'Itria", detail: "Dec 23–26 · 3 nights" },
-  { place: "Lecce", detail: "Dec 26–28 · 2 nights" },
-  { place: "Palermo", detail: "Dec 28–31 · 3 nights" },
-  { place: "Taormina", detail: "Dec 31–Jan 2 · 2 nights · NYE" },
-  { place: "Ortigia", detail: "Jan 2–6 · 4 nights" },
-];
-
-const SECTIONS = [
-  { href: "/itinerary", title: "Itinerary", text: "Day by day, with train and flight transfer cards." },
-  { href: "/stays", title: "Stays", text: "27 researched Airbnb options — react to each one." },
-  { href: "/flights", title: "Flights", text: "The 4 flight routes with recommended picks." },
-  { href: "/suggest", title: "Suggest a change", text: "Post ideas — the whole family sees them live." },
-];
-
-export default function HomePage() {
+export default function HubLandingPage() {
   return (
-    <div>
-      <div className="rounded-2xl border border-amber-300 bg-amber-50 p-4">
-        <p className="text-sm font-semibold text-amber-900">Nothing is booked yet</p>
-        <p className="mt-1 text-sm text-amber-800">
-          Every flight and stay here is a researched proposal, not a reservation. Prices were checked
-          live Oct 4–5, 2026 and will change.
-        </p>
-      </div>
+    <div className="flex min-h-screen flex-col">
+      <header className="bg-espresso-900 text-parchment">
+        <div className="mx-auto max-w-2xl px-5 pb-8 pt-10">
+          <p className="eyebrow text-gold-300">The Dhar family travel hub</p>
+          <h1 className="mt-2 font-display text-[40px] font-semibold leading-[1.05] tracking-tight">
+            Dharz Travel Hub
+          </h1>
+          <p className="mt-3 max-w-md text-[15px] leading-relaxed text-white/65">
+            Every trip, one hub — itineraries, stays, flights, and a suggestion board the whole
+            family shares live.
+          </p>
+        </div>
+        <div className="h-[3px] bg-gradient-to-r from-terracotta-600 via-gold-400 to-olive-600" />
+      </header>
 
-      <h1 className="mt-6 text-2xl font-bold tracking-tight">The journey at a glance</h1>
-      <ol className="mt-3 space-y-2">
-        {STOPS.map((s) => (
-          <li
-            key={s.place}
-            className="flex items-baseline justify-between rounded-xl border border-stone-200 bg-white px-4 py-3"
-          >
-            <span className="text-base font-semibold">{s.place}</span>
-            <span className="text-sm text-stone-500">{s.detail}</span>
-          </li>
-        ))}
-      </ol>
-      <p className="mt-3 text-sm text-stone-600">
-        Jan 6: everyone flies out of Catania — Ria &amp; Billy → SFO, Ash → Delhi. Rohith leaves Jan 2
-        via Rome.
-      </p>
+      <main className="mx-auto w-full max-w-2xl flex-1 px-5 pb-12 pt-8">
+        <div className="flex items-baseline justify-between">
+          <h2 className="font-display text-[24px] font-semibold tracking-tight text-ink">
+            Your trips
+          </h2>
+          <p className="text-[13px] text-stone-500">1 trip planning</p>
+        </div>
 
-      <h2 className="mt-8 text-2xl font-bold tracking-tight">Who&apos;s going</h2>
-      <div className="mt-3 grid grid-cols-2 gap-2">
-        {[
-          { name: "Ash", note: "Whole trip" },
-          { name: "Billy", note: "Whole trip" },
-          { name: "Ria", note: "Whole trip" },
-          { name: "Rohith", note: "Dec 19 – Jan 2" },
-        ].map((p) => (
-          <div key={p.name} className="rounded-xl border border-stone-200 bg-white px-4 py-3">
-            <p className="text-base font-semibold">{p.name}</p>
-            <p className="text-sm text-stone-500">{p.note}</p>
-          </div>
-        ))}
-      </div>
-
-      <h2 className="mt-8 text-2xl font-bold tracking-tight">Explore</h2>
-      <div className="mt-3 grid gap-2">
-        {SECTIONS.map((s) => (
+        <div className="mt-4 grid gap-4">
           <Link
-            key={s.href}
-            href={s.href}
-            className="block min-h-[64px] rounded-xl border border-stone-200 bg-white px-4 py-3 active:bg-stone-100"
+            href="/trips/vacation-dec-2026"
+            className="card group overflow-hidden transition-transform active:scale-[0.99]"
           >
-            <p className="text-base font-semibold text-orange-800">{s.title}</p>
-            <p className="text-sm text-stone-600">{s.text}</p>
+            <div className="relative h-44 overflow-hidden">
+              <img
+                src="/trip-italy.jpg"
+                alt="Italian coastline at golden hour"
+                className="h-full w-full object-cover transition-transform duration-500 group-active:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
+              <span className="absolute left-4 top-4 rounded-full bg-gold-400 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-espresso-900">
+                Planning
+              </span>
+              <div className="absolute bottom-3 left-4 right-4">
+                <p className="font-display text-[24px] font-semibold text-white">
+                  Vacation Dec 2026
+                </p>
+                <p className="text-[13px] text-white/80">Italy · Dec 16, 2026 – Jan 7, 2027</p>
+              </div>
+            </div>
+            <div className="flex items-center justify-between gap-3 p-5">
+              <div>
+                <p className="text-sm font-medium text-stone-600">
+                  Rome → Naples → Puglia → Sicily
+                </p>
+                <p className="mt-0.5 text-[13px] text-stone-500">
+                  Ash · Billy · Ria · Rohith · 27 stays · 4 flight routes
+                </p>
+              </div>
+              <span
+                aria-hidden
+                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-terracotta-700 text-lg font-bold text-white transition-transform group-active:translate-x-0.5"
+              >
+                →
+              </span>
+            </div>
           </Link>
-        ))}
-      </div>
+
+          <div className="rounded-2xl border-2 border-dashed border-stone-300 p-6 text-center">
+            <p className="font-display text-[18px] font-semibold text-stone-400">
+              Your next adventure lives here
+            </p>
+            <p className="mt-1 text-sm text-stone-400">
+              Future trips will appear as cards on this page.
+            </p>
+          </div>
+        </div>
+
+        <div className="card mt-8 border-l-4 border-l-terracotta-600 p-5">
+          <p className="font-display text-[18px] font-semibold text-ink">
+            Why a hub, not a link?
+          </p>
+          <p className="mt-1 text-sm leading-relaxed text-stone-600">
+            Suggestions and reactions save to the family database — Billy&apos;s ideas won&apos;t
+            vanish between devices ever again. Everyone sees everything, live.
+          </p>
+        </div>
+      </main>
     </div>
   );
 }

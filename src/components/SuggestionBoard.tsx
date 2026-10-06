@@ -61,11 +61,11 @@ function BoardInner({
 
   if (state.dbDown) {
     return (
-      <div className="rounded-2xl border border-amber-300 bg-amber-50 p-4">
-        <h2 className="text-base font-semibold text-amber-900">Live board is offline</h2>
-        <p className="mt-1 text-sm text-amber-800">
-          The database is not connected yet. Set <code>MONGODB_URI</code> in the Vercel project
-          env vars and redeploy to turn the live board on.
+      <div className="card border-l-4 border-l-gold-400 p-5">
+        <h2 className="font-display text-[18px] font-semibold text-ink">Live board is offline</h2>
+        <p className="mt-1 text-sm leading-relaxed text-stone-600">
+          The database is not connected yet. Set <code>MONGODB_URI</code> in your{" "}
+          <code>.env.local</code> and restart the dev server to turn the live board on.
         </p>
       </div>
     );
@@ -73,12 +73,12 @@ function BoardInner({
 
   if (state.failed) {
     return (
-      <div className="rounded-2xl border border-stone-200 bg-white p-6 text-center">
+      <div className="card p-6 text-center">
         <p className="text-sm text-stone-600">Couldn&apos;t load the board.</p>
         <button
           type="button"
           onClick={onRefresh}
-          className="mt-2 min-h-[44px] rounded-full border border-stone-300 bg-white px-4 text-sm font-medium text-stone-700"
+          className="mt-3 min-h-[44px] rounded-full border border-stone-300 bg-white px-5 text-sm font-semibold text-stone-700 active:bg-stone-100"
         >
           Try again
         </button>
@@ -88,32 +88,32 @@ function BoardInner({
 
   return (
     <div>
-      <div className="mb-3 flex items-center justify-between">
-        <h2 className="text-lg font-semibold text-stone-900">
+      <div className="mb-4 flex items-center justify-between">
+        <h2 className="font-display text-[20px] font-semibold text-ink">
           Family board{" "}
           {state.items.length > 0 && (
-            <span className="text-stone-500">({state.items.length})</span>
+            <span className="text-stone-400">({state.items.length})</span>
           )}
         </h2>
         <button
           type="button"
           onClick={onRefresh}
-          className="min-h-[40px] rounded-full border border-stone-300 bg-white px-4 text-sm font-medium text-stone-700"
+          className="min-h-[40px] rounded-full border border-stone-300 bg-white px-4 text-sm font-semibold text-stone-600 active:bg-stone-100"
         >
           Refresh
         </button>
       </div>
 
       {state.items.length === 0 ? (
-        <p className="rounded-2xl border border-stone-200 bg-white p-6 text-center text-sm text-stone-500">
+        <p className="card p-6 text-center text-sm text-stone-500">
           No suggestions yet — be the first to post one above.
         </p>
       ) : (
         <ul className="space-y-3">
           {state.items.map((s) => (
-            <li key={s._id} className="rounded-2xl border border-stone-200 bg-white p-4 shadow-sm">
+            <li key={s._id} className="card p-5">
               <div className="flex items-center justify-between gap-2">
-                <span className="rounded-full bg-orange-100 px-3 py-1 text-xs font-semibold text-orange-900">
+                <span className="rounded-full bg-terracotta-100 px-3 py-1 text-xs font-bold text-terracotta-800">
                   {s.changeType}
                 </span>
                 <span className="text-xs text-stone-500">
@@ -125,11 +125,11 @@ function BoardInner({
                   })}
                 </span>
               </div>
-              <p className="mt-2 text-base font-semibold text-stone-900">{s.place}</p>
-              <p className="text-sm text-stone-600">
+              <p className="mt-2.5 font-display text-[18px] font-semibold text-ink">{s.place}</p>
+              <p className="text-[13px] text-stone-500">
                 {s.dateAffected} · by {s.name}
               </p>
-              <p className="mt-2 text-sm text-stone-800">{s.details}</p>
+              <p className="mt-2 text-sm leading-relaxed text-stone-700">{s.details}</p>
             </li>
           ))}
         </ul>
